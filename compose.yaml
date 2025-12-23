@@ -10,7 +10,7 @@
 
 services:
   todo-app:
-    build:
+    build: #Tells Docker Compose to build an image for the service using the Dockerfile in the specified directory
       context: ./app
     depends_on:
       - todo-database
@@ -19,7 +19,7 @@ services:
     ports:
       - 3000:3000
       - 35729:35729
-    develop:
+    develop: # This section is used by 'docker compose up' in development mode to enable live reloading
       watch:
         - path: ./app/package.json
           action: rebuild
